@@ -1,0 +1,56 @@
+# Build
+build/
+cmake-build-*/
+out/
+
+# Conan
+CMakeUserPresets.json
+conanbuildinfo.*
+conaninfo.txt
+graph_info.json
+*.pyc
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+Makefile
+
+# Binaries
+*.exe
+*.out
+*.app
+*.dylib
+*.so
+*.a
+*.o
+*.obj
+engine
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.Python
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.helix/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Assets (optional, uncomment if you generate these)
+# assets/*.glb
+# assets/*.gltf
+
+# Logs
+*.log
