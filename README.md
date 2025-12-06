@@ -35,10 +35,10 @@ npm install -g pyright lua-language-server
 
 ## 2. Python & Conan Setup
 
-From your studio root (for example ~/BlichStudio):
+From your preferred workspace directory:
 
 ```
-cd ~/BlichStudio
+cd <your-workspace>
 python3 -m venv .venv
 source .venv/bin/activate
 pip install conan pybind11
@@ -51,7 +51,7 @@ conan --version
 ## 3. Clone / Create Project
 
 ```
-cd ~/BlichStudio
+cd <your-workspace>
 git clone <this-repo-url> StudioVulkanEngine
 cd StudioVulkanEngine
 ```
@@ -61,7 +61,7 @@ cd StudioVulkanEngine
 ## 4. Conan Dependencies
 
 ```
-cd ~/BlichStudio/StudioVulkanEngine
+cd <your-workspace>/StudioVulkanEngine
 source ../.venv/bin/activate
 conan install . --build=missing -s build_type=Release -s os=Macos -s arch=x86_64
 ```
@@ -89,9 +89,22 @@ ninja -j8
 
 ## 7. Vulkan Environment Notes (macOS / MoltenVK)
 
+If Vulkan fails to initialize, set these environment variables (adjust paths based on your Homebrew prefix):
+
 ```
+# Intel Mac (usually /usr/local)
 export VK_ICD_FILENAMES=/usr/local/share/vulkan/icd.d/MoltenVK_icd.json
 export VK_LAYER_PATH=/usr/local/share/vulkan/explicit_layer.d
+
+# Apple Silicon (usually /opt/homebrew)
+export VK_ICD_FILENAMES=/opt/homebrew/share/vulkan/icd.d/MoltenVK_icd.json
+export VK_LAYER_PATH=/opt/homebrew/share/vulkan/explicit_layer.d
+```
+
+Find your Homebrew prefix with:
+
+```
+brew --prefix
 ```
 
 ---
@@ -103,4 +116,3 @@ export VK_LAYER_PATH=/usr/local/share/vulkan/explicit_layer.d
 - glm, Assimp, Bullet
 - Lua + sol2, Python + pybind11
 - ImGui, OpenAL
-```
