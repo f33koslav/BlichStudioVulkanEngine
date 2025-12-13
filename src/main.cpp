@@ -1,5 +1,6 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
+#include "render/vulkan_context.h"
 
 int main() {
     std::cout << "🚀 Studio Vulkan Engine Starting..." << std::endl;
@@ -18,12 +19,16 @@ int main() {
         return -1;
     }
     
-    std::cout << "✅ GLFW window created! Vulkan initialization next..." << std::endl;
+    VulkanContext vk;
+    vk.init(window);
+    
+    std::cout << "✅ GLFW window created! Vulkan initialization complete..." << std::endl;
     
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
     }
     
+    vk.cleanup();
     glfwDestroyWindow(window);
     glfwTerminate();
     std::cout << "🎮 Engine shutdown complete" << std::endl;
